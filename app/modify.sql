@@ -1,0 +1,1 @@
+ALTER TABLE `products` ADD `status` BOOLEAN NOT NULL DEFAULT FALSE ;

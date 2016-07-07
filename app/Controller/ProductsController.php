@@ -207,4 +207,18 @@ class ProductsController extends AppController {
 		}
 	}
 
+	public function approve($id = NULL){
+		
+		if (!empty($id)) {
+			$data = array('id' => $id, 'status' => 1);
+			$this -> Product -> save($data);
+			$this -> redirect(array('controller' => 'products', 'action' => 'approve'));
+		}
+
+		$this -> layout = "admin";
+		$data = $this -> Product -> find('all', array('conditions' => array('Product.status' => 0)));
+		$this -> set('products', $data);
+
+	}
+
 }

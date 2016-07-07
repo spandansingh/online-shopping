@@ -24,15 +24,17 @@ class GuestCheckoutController extends AppController{
 	}
 	
 	public function checkout($s=null) {
+		
 		$this->view='thankyou';
 		$a =$this->request->data['Address']['address'];
-		//pr($this->request->data);
+		
 		if ($this -> request -> is('post')) {
 			foreach ($this->request->data['Order'] as $orderid) {
 				
 				$this -> Order -> updateAll(array('Order.status' => 1,'Order.guestaddress' => "'$a'"), array('Order.id' => $orderid));
 			}
 		}
+		
 		$this->Session->delete('cart');
 	}
 }

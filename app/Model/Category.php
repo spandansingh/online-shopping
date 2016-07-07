@@ -47,7 +47,9 @@ class Category extends AppModel {
 			'className' => 'Product',
 			'foreignKey' => 'category_id',
 			'dependent' => false,
-			'conditions' => '',
+			'conditions' => array(
+				'Product.status' => 1
+			),
 			'fields' => '',
 			'order' => '',
 			'limit' => '',
