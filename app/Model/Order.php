@@ -79,4 +79,10 @@ class Order extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public $virtualFields = array(
+    	'seller_amount' => 'Order.total * 0.8',
+    	'admin_amount' => 'Order.total * 0.2'
+	);
+
 }
